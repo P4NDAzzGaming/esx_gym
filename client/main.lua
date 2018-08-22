@@ -245,6 +245,7 @@ Citizen.CreateThread(function()
 							TaskStartScenarioInPlace(playerPed, "world_human_muscle_free_weights", 0, true)
 							Citizen.Wait(30000)
 							ClearPedTasksImmediately(playerPed)
+							StatSetInt("MP0_STRENGTH", 100, true)
 							ESX.ShowNotification("You need to rest ~r~60 seconds ~w~before doing another exercise.")
 							
 							--TriggerServerEvent('esx_gym:trainArms') ## COMING SOON...
@@ -290,6 +291,7 @@ Citizen.CreateThread(function()
 							TaskStartScenarioInPlace(playerPed, "prop_human_muscle_chin_ups", 0, true)
 							Citizen.Wait(30000)
 							ClearPedTasksImmediately(playerPed)
+							StatSetInt("MP0_STRENGTH", 100, true)
 							ESX.ShowNotification("You need to rest ~r~60 seconds ~w~before doing another exercise.")
 							
 							--TriggerServerEvent('esx_gym:trainChins') ## COMING SOON...
@@ -335,6 +337,7 @@ Citizen.CreateThread(function()
 							TaskStartScenarioInPlace(playerPed, "world_human_push_ups", 0, true)
 							Citizen.Wait(30000)
 							ClearPedTasksImmediately(playerPed)
+							StatSetInt("MP0_STRENGTH", 100, true)
 							ESX.ShowNotification("You need to rest ~r~60 seconds ~w~before doing another exercise.")
 						
 							--TriggerServerEvent('esx_gym:trainPushups') ## COMING SOON...
@@ -381,7 +384,7 @@ Citizen.CreateThread(function()
 							Citizen.Wait(30000)
 							ClearPedTasksImmediately(playerPed)
 							ESX.ShowNotification("You need to rest ~r~60 seconds ~w~before doing another exercise.")
-						
+							StatSetInt("MP0_STAMINA", 100, true)
 							--TriggerServerEvent('esx_gym:trainYoga') ## COMING SOON...
 							
 							training = true
@@ -425,8 +428,9 @@ Citizen.CreateThread(function()
 							TaskStartScenarioInPlace(playerPed, "world_human_sit_ups", 0, true)
 							Citizen.Wait(30000)
 							ClearPedTasksImmediately(playerPed)
+							StatSetInt("MP0_STRENGTH", 100, true)
 							ESX.ShowNotification("You need to rest ~r~60 seconds ~w~before doing another exercise.")
-						
+							
 							--TriggerServerEvent('esx_gym:trainSitups') ## COMING SOON...
 							
 							training = true
