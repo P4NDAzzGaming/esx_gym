@@ -14,7 +14,49 @@ AddEventHandler('esx_gym:hireBmx', function()
 			
 		notification("You hired a ~g~BMX")
 	else
-		notification("You do not have enough ~r~money")
+		notification("You stole the bike because you didn't have enough ~r~money")
+	end	
+end)
+
+RegisterServerEvent('esx_gym:hireCruiser')
+AddEventHandler('esx_gym:hireCruiser', function()
+	local _source = source
+	local xPlayer = ESX.GetPlayerFromId(_source)
+	
+	if(xPlayer.getMoney() >= 300) then
+		xPlayer.removeMoney(300)
+			
+		notification("You hired a ~g~CRUISER")
+	else
+		notification("You stole the bike because you didn't have enough ~r~money")
+	end	
+end)
+
+RegisterServerEvent('esx_gym:hireFixter')
+AddEventHandler('esx_gym:hireFixter', function()
+	local _source = source
+	local xPlayer = ESX.GetPlayerFromId(_source)
+	
+	if(xPlayer.getMoney() >= 329) then
+		xPlayer.removeMoney(329)
+			
+		notification("You hired a ~g~FIXTER")
+	else
+		notification("You stole the bike because you didn't have enough ~r~money")
+	end	
+end)
+
+RegisterServerEvent('esx_gym:hireScorcher')
+AddEventHandler('esx_gym:hireScorcher', function()
+	local _source = source
+	local xPlayer = ESX.GetPlayerFromId(_source)
+	
+	if(xPlayer.getMoney() >= 400) then
+		xPlayer.removeMoney(400)
+			
+		notification("You hired a ~g~SCORCHER")
+	else
+		notification("You stole the bike because you didn't have enough ~r~money")
 	end	
 end)
 
