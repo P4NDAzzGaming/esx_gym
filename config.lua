@@ -8,8 +8,13 @@ Config.Cooldown             = 180
 -- Membership price
 Config.Membership           = 800
 -- Prices for items
-Config.bandage              = 50
-Config.powerade             = 4
-Config.protein_shake        = 6
-Config.water                = 1
-Config.sportlunch           = 2
+Config.Bandage              = 50
+Config.Powerade             = 4
+Config.Protein_shake        = 6
+Config.Sportlunch           = 2
+Config.Water                = 1
+-- Bike rental
+Config.BMX                  = 250
+Config.Cruiser              = 300
+Config.Fixter               = 329
+Config.Scorcher             = 400

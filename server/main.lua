@@ -82,7 +82,7 @@ AddEventHandler('esx_gym:buyBandage', function()
         xPlayer.removeMoney(50)
 
         xPlayer.addInventoryItem('sport_bandage', 1)
-        notification("You purchased a ~g~sport bandage")
+        notification("You purchased a ~g~Sport bandage")
     else
         notification("You do not have enough ~r~money")
     end
@@ -97,7 +97,7 @@ AddEventHandler('esx_gym:buyMembership', function()
         xPlayer.removeMoney(800)
 
         xPlayer.addInventoryItem('gym_membership', 1)
-        notification("You purchased a ~g~membership")
+        notification("You purchased a ~g~Gym Membership")
 
         TriggerClientEvent('esx_gym:trueMembership', source) -- true
     else
@@ -116,7 +116,7 @@ AddEventHandler('esx_gym:buyProteinshake', function()
 
         xPlayer.addInventoryItem('protein_shake', 1)
 
-        notification("You purchased a ~g~protein shake")
+        notification("You purchased a ~g~Protein shake")
     else
         notification("You do not have enough ~r~money")
     end
@@ -132,7 +132,7 @@ AddEventHandler('esx_gym:buyWater', function()
 
         xPlayer.addInventoryItem('water', 1)
 
-        notification("You purchased a ~g~water")
+        notification("You purchased a bottle of ~g~Water")
     else
         notification("You do not have enough ~r~money")
     end
@@ -148,7 +148,7 @@ AddEventHandler('esx_gym:buySportlunch', function()
 
         xPlayer.addInventoryItem('sportlunch', 1)
 
-        notification("You purchased a ~g~sportlunch")
+        notification("You purchased a ~g~Sportlunch")
     else
         notification("You do not have enough ~r~money")
     end
@@ -164,7 +164,7 @@ AddEventHandler('esx_gym:buyPowerade', function()
 
         xPlayer.addInventoryItem('powerade', 1)
 
-        notification("You purchased a ~g~powerade")
+        notification("You purchased a ~g~Powerade")
     else
         notification("You do not have enough ~r~money")
     end
@@ -189,9 +189,8 @@ ESX.RegisterUsableItem('protein_shake', function(source)
 end)
 
 ESX.RegisterUsableItem('sport_bandage', function(source)
-    local _source = source
-    local xPlayer = ESX.GetPlayerFromId(source)
-    xPlayer.removeInventoryItem('sport_bandage', 1)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('sport_bandage', 1)
     TriggerClientEvent('esx_gym:useBandage', source)
 end)
 

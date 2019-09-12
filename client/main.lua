@@ -68,7 +68,7 @@ local Keys = {
 	  local newHealth = math.min(maxHealth , math.floor(health + maxHealth/3))
 	  SetEntityHealth(playerPed, newHealth)
 	  --SetEntityHealth(playerPed, maxHealth) -- Give them full health by one bandage
-	  ESX.ShowNotification(_U('bandage')
+	  ESX.ShowNotification(_U('bandage'))
   end)
   
   RegisterNetEvent('esx_gym:trueMembership')
@@ -244,7 +244,7 @@ local Keys = {
 							ESX.ShowNotification(_U('membership'))
 						  end
 					  elseif training == true then
-						ESX.ShowNotification(_U('rest')
+						ESX.ShowNotification(_U('rest'))
 						resting = true
 						CheckTraining()
 					  end
@@ -257,9 +257,7 @@ local Keys = {
   Citizen.CreateThread(function()
 	  while true do
 		  Citizen.Wait(0)
-  
-		  for k in pairs(chins) do
-  
+  		  for k in pairs(chins) do
 			  local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
 			  local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, chins[k].x, chins[k].y, chins[k].z)
 			  -- Check distance to show hint
@@ -284,7 +282,7 @@ local Keys = {
 							  ESX.ShowNotification(_U('membership'))
 						  end
 					  elseif training == true then
-						ESX.ShowNotification(_U('rest')
+						ESX.ShowNotification(_U('rest'))
 						resting = true
 						CheckTraining()
 					  end
@@ -297,9 +295,7 @@ local Keys = {
   Citizen.CreateThread(function()
 	  while true do
 		  Citizen.Wait(0)
-  
 		  for k in pairs(pushup) do
-  
 			  local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
 			  local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, pushup[k].x, pushup[k].y, pushup[k].z)
 			  -- Check distance to show hint
@@ -324,7 +320,7 @@ local Keys = {
 							  ESX.ShowNotification(_U('membership'))
 						  end							
 					  elseif training == true then
-						  ESX.ShowNotification(_U('rest')
+						  ESX.ShowNotification(_U('rest'))
 						  resting = true						
 						  CheckTraining()
 					  end
@@ -362,7 +358,7 @@ local Keys = {
 							  ESX.ShowNotification(_U('membership'))
 						  end
 					  elseif training == true then
-						  ESX.ShowNotification(_U('rest')						
+						  ESX.ShowNotification(_U('rest'))						
 						  resting = true						
 						  CheckTraining()
 					  end
@@ -383,8 +379,7 @@ local Keys = {
 				  hintToDisplay(_U('situps'))
 				  -- Check if key is pressed				
 				  if IsControlJustPressed(0, Keys['E']) then
-					  if training == false then
-  
+					  if training == false then  
 						  TriggerServerEvent('esx_gym:checkChip')
 						  ESX.ShowNotification(_U('excercise'))
 						  Citizen.Wait(1000)
@@ -401,7 +396,7 @@ local Keys = {
 							  ESX.ShowNotification(_U('membership'))
 						  end
 					  elseif training == true then
-						ESX.ShowNotification(_U('rest')
+						ESX.ShowNotification(_U('rest'))
 						  resting = true						
 						  CheckTraining()
 					  end
@@ -462,11 +457,11 @@ local Keys = {
 		  {
 			  title    = 'Gym - Shop',
 			  elements = {
-				  {label = 'Protein Shake ($6)', value = 'protein_shake'},
-				  {label = 'Water ($1)', value = 'water'},
-				  {label = 'Sportlunch ($2)', value = 'sportlunch'},
-				  {label = 'Powerade ($4)', value = 'powerade'},
-				  {label = 'Bandage ($50)', value = 'bandage'},
+				  {label = _U('proteinshake', Config.Protein_shake), value = 'protein_shake'},
+				  {label = _U('water', Config.Water),  value = 'water'},
+				  {label = _U('sportlunch', Config.Sportlunch), value = 'sportlunch'},
+				  {label = _U('powerade', Config.Powerade), value = 'powerade'},
+				  {label = _U('bandage', Config.Bandage), value = 'bandage'},
 			  }
 		  },
 		  function(data, menu)
@@ -496,7 +491,7 @@ local Keys = {
 		  {
 			  title    = 'Gym - Membership',
 			  elements = {
-				  {label = 'Membership ($800)', value = 'membership'},
+				  {label = _U('membership', Config.Membership), value = 'membership'},
 			  }
 		  },
 		  function(data, menu)
@@ -519,10 +514,10 @@ local Keys = {
 		  {
 			  title    = 'Hire a bike',
 			  elements = {
-				  {label = 'BMX ($250)', value = 'bmx'},
-				  {label = 'Cruiser ($300)', value = 'cruiser'},
-				  {label = 'Fixter ($329)', value = 'fixter'},
-				  {label = 'Scorcher ($400)', value = 'scorcher'},
+				  {label = _U('bmx', Config.BMX), value = 'bmx'},
+				  {label = _U('cruiser', Config.Cruiser), value = 'cruiser'},
+				  {label = _U('fixter', Config.Fixter), value = 'fixter'},
+				  {label = _U('scorcher', Config.Scorcher), value = 'scorcher'},
 			  }
 		  },
 		  function(data, menu)
