@@ -216,6 +216,7 @@ local Keys = {
 	  end
   end)
   
+  -- Arms
   Citizen.CreateThread(function()
 	  while true do
 		  Citizen.Wait(0)
@@ -237,7 +238,7 @@ local Keys = {
 							TaskStartScenarioInPlace(playerPed, "world_human_muscle_free_weights", 0, true)
 							Citizen.Wait(30000)
 							ClearPedTasksImmediately(playerPed)
-							ESX.ShowNotification(_U('rest_excercise'))
+							ESX.ShowNotification(_U('rest_excercise', Config.Cooldown))
 							--TriggerServerEvent('esx_gym:trainArms') ## COMING SOON...
 							training = true
 						  elseif membership == false then
@@ -254,6 +255,7 @@ local Keys = {
 	  end
   end)
   
+  -- Pullups
   Citizen.CreateThread(function()
 	  while true do
 		  Citizen.Wait(0)
@@ -275,7 +277,7 @@ local Keys = {
 							  TaskStartScenarioInPlace(playerPed, "prop_human_muscle_chin_ups", 0, true)
 							  Citizen.Wait(30000)
 							  ClearPedTasksImmediately(playerPed)
-							  ESX.ShowNotification(_U('rest_excercise'))							
+							  ESX.ShowNotification(_U('rest_excercise', Config.Cooldown))
 							  --TriggerServerEvent('esx_gym:trainChins') ## COMING SOON...							
 							  training = true
 						  elseif membership == false then
@@ -292,6 +294,7 @@ local Keys = {
 	  end
   end)
   
+  -- Pushups
   Citizen.CreateThread(function()
 	  while true do
 		  Citizen.Wait(0)
@@ -313,7 +316,7 @@ local Keys = {
 							  TaskStartScenarioInPlace(playerPed, "world_human_push_ups", 0, true)
 							  Citizen.Wait(30000)
 							  ClearPedTasksImmediately(playerPed)
-							  ESX.ShowNotification(_U('rest_excercise'))						
+							  ESX.ShowNotification(_U('rest_excercise', Config.Cooldown))
 							  --TriggerServerEvent('esx_gym:trainPushups') ## COMING SOON...							
 							  training = true
 						  elseif membership == false then
@@ -330,6 +333,7 @@ local Keys = {
 	  end
   end)
   
+  -- Yoga
   Citizen.CreateThread(function()
 	  while true do
 		  Citizen.Wait(0)
@@ -351,7 +355,7 @@ local Keys = {
 							  TaskStartScenarioInPlace(playerPed, "world_human_yoga", 0, true)
 							  Citizen.Wait(30000)
 							  ClearPedTasksImmediately(playerPed)
-							  ESX.ShowNotification(_U('rest_excercise'))
+							  ESX.ShowNotification(_U('rest_excercise', Config.Cooldown))
 							  --TriggerServerEvent('esx_gym:trainYoga') ## COMING SOON...							
 							  training = true
 						  elseif membership == false then
@@ -368,6 +372,7 @@ local Keys = {
 	  end
   end)
   
+  -- Situps
   Citizen.CreateThread(function()
 	  while true do
 		  Citizen.Wait(0)
@@ -389,7 +394,7 @@ local Keys = {
 							  TaskStartScenarioInPlace(playerPed, "world_human_sit_ups", 0, true)
 							  Citizen.Wait(30000)
 							  ClearPedTasksImmediately(playerPed)
-							  ESX.ShowNotification(_U('rest_excercise'))
+							  ESX.ShowNotification(_U('rest_excercise', Config.Cooldown))
 							  --TriggerServerEvent('esx_gym:trainSitups') ## COMING SOON...							
 							  training = true
 						  elseif membership == false then
@@ -397,8 +402,8 @@ local Keys = {
 						  end
 					  elseif training == true then
 						ESX.ShowNotification(_U('rest'))
-						  resting = true						
-						  CheckTraining()
+						resting = true
+						CheckTraining()
 					  end
 				  end			
 			  end

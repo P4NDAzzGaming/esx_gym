@@ -9,7 +9,7 @@ Locales['en'] = {
     ['alreadyrented'] = "You already have a ~r~bike",
     -- General Excercise
     ['excercise'] = "Preparing the ~g~exercise~w~...",
-    ['rest_excercise'] = "You need to rest ~r~$$ seconds ~w~before doing another exercise.",
+    ['rest_excercise'] = "You need to rest ~r~%s seconds ~w~before doing another exercise.",
     ['rest'] = "You need to rest...",
     -- Arms
     ['arms'] = "Press ~INPUT_CONTEXT~ to exercise your ~g~arms",
