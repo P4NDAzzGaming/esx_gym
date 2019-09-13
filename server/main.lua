@@ -9,8 +9,8 @@ AddEventHandler('esx_gym:hireBmx', function()
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
 
-    if(xPlayer.getMoney() >= 250) then
-        xPlayer.removeMoney(250)
+    if(xPlayer.getMoney() >= Config.BMX) then
+        xPlayer.removeMoney(Config.BMX)
 
         notification("You hired a ~g~BMX")
     else
@@ -23,8 +23,8 @@ AddEventHandler('esx_gym:hireCruiser', function()
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
 
-    if(xPlayer.getMoney() >= 300) then
-        xPlayer.removeMoney(300)
+    if(xPlayer.getMoney() >= Config.Cruiser) then
+        xPlayer.removeMoney(Config.Cruiser)
 
         notification("You hired a ~g~CRUISER")
     else
@@ -37,8 +37,8 @@ AddEventHandler('esx_gym:hireFixter', function()
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
 
-    if(xPlayer.getMoney() >= 329) then
-        xPlayer.removeMoney(329)
+    if(xPlayer.getMoney() >= Config.Fixter) then
+        xPlayer.removeMoney(Config.Fixter)
 
         notification("You hired a ~g~FIXTER")
     else
@@ -51,8 +51,8 @@ AddEventHandler('esx_gym:hireScorcher', function()
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
 
-    if(xPlayer.getMoney() >= 400) then
-        xPlayer.removeMoney(400)
+    if(xPlayer.getMoney() >= Config.Scorcher) then
+        xPlayer.removeMoney(Config.Scorcher)
 
         notification("You hired a ~g~SCORCHER")
     else
@@ -78,8 +78,8 @@ AddEventHandler('esx_gym:buyBandage', function()
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
 
-    if(xPlayer.getMoney() >= 50) then
-        xPlayer.removeMoney(50)
+    if(xPlayer.getMoney() >= Config.Bandage) then
+        xPlayer.removeMoney(Config.Bandage)
 
         xPlayer.addInventoryItem('sport_bandage', 1)
         notification("You purchased a ~g~Sport bandage")
@@ -93,8 +93,8 @@ AddEventHandler('esx_gym:buyMembership', function()
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
 
-    if(xPlayer.getMoney() >= 800) then
-        xPlayer.removeMoney(800)
+    if(xPlayer.getMoney() >= Config.Membership) then
+        xPlayer.removeMoney(Config.Membership)
 
         xPlayer.addInventoryItem('gym_membership', 1)
         notification("You purchased a ~g~Gym Membership")
@@ -111,8 +111,8 @@ AddEventHandler('esx_gym:buyProteinshake', function()
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
 
-    if(xPlayer.getMoney() >= 6) then
-        xPlayer.removeMoney(6)
+    if(xPlayer.getMoney() >= Config.Protein_shake) then
+        xPlayer.removeMoney(Config.Protein_shake)
 
         xPlayer.addInventoryItem('protein_shake', 1)
 
@@ -127,8 +127,8 @@ AddEventHandler('esx_gym:buyWater', function()
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
 
-    if(xPlayer.getMoney() >= 1) then
-        xPlayer.removeMoney(1)
+    if(xPlayer.getMoney() >= Config.Water) then
+        xPlayer.removeMoney(Config.Water)
 
         xPlayer.addInventoryItem('water', 1)
 
@@ -143,8 +143,8 @@ AddEventHandler('esx_gym:buySportlunch', function()
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
 
-    if(xPlayer.getMoney() >= 2) then
-        xPlayer.removeMoney(2)
+    if(xPlayer.getMoney() >= Config.Sportlunch) then
+        xPlayer.removeMoney(Config.Sportlunch)
 
         xPlayer.addInventoryItem('sportlunch', 1)
 
@@ -159,8 +159,8 @@ AddEventHandler('esx_gym:buyPowerade', function()
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
 
-    if(xPlayer.getMoney() >= 4) then
-        xPlayer.removeMoney(4)
+    if(xPlayer.getMoney() >= Config.Powerade) then
+        xPlayer.removeMoney(Config.Powerade)
 
         xPlayer.addInventoryItem('powerade', 1)
 
