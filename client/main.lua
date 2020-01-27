@@ -556,34 +556,15 @@ function OpenBikeMenu()
         {
             title    = 'Hire a bike',
             elements = {
-				{label = 'BMX ($250)', value = 'bmx'},
-				{label = 'Cruiser ($300)', value = 'cruiser'},
-				{label = 'Fixter ($329)', value = 'fixter'},
-				{label = 'Scorcher ($400)', value = 'scorcher'},
+				{label = 'BMX ($250)', value = 'bmx', price = 250},
+				{label = 'Cruiser ($300)', value = 'cruiser', price = 300},
+				{label = 'Fixter ($329)', value = 'fixter', price = 329},
+				{label = 'Scorcher ($400)', value = 'scorcher', price = 400},
             }
         },
         function(data, menu)
-            if data.current.value == 'bmx' then
-				TriggerServerEvent('esx_gym:hireBmx')
-				TriggerEvent('esx:spawnVehicle', "bmx")
-				
-				ESX.UI.Menu.CloseAll()
-            elseif data.current.value == 'cruiser' then
-				TriggerServerEvent('esx_gym:hireCruiser')
-				TriggerEvent('esx:spawnVehicle', "cruiser")
-				
-				ESX.UI.Menu.CloseAll()
-            elseif data.current.value == 'fixter' then
-				TriggerServerEvent('esx_gym:hireFixter')
-				TriggerEvent('esx:spawnVehicle', "fixter")
-				
-				ESX.UI.Menu.CloseAll()
-            elseif data.current.value == 'scorcher' then
-				TriggerServerEvent('esx_gym:hireScorcher')
-				TriggerEvent('esx:spawnVehicle', "scorcher")
-				
-				ESX.UI.Menu.CloseAll()
-            end
+            TriggerServerEvent('esx_gym:spawnVehicle', data.current.value, data.current.price)
+            ESX.UI.Menu.CloseAll()
         end,
         function(data, menu)
             menu.close()
