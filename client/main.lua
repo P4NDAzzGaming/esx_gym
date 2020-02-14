@@ -1,20 +1,6 @@
-local Keys = {
-  ["ESC"] = 322, ["F1"] = 288, ["F2"] = 289, ["F3"] = 170, ["F5"] = 166, ["F6"] = 167, ["F7"] = 168, ["F8"] = 169, ["F9"] = 56, ["F10"] = 57, 
-  ["~"] = 243, ["1"] = 157, ["2"] = 158, ["3"] = 160, ["4"] = 164, ["5"] = 165, ["6"] = 159, ["7"] = 161, ["8"] = 162, ["9"] = 163, ["-"] = 84, ["="] = 83, ["BACKSPACE"] = 177, 
-  ["TAB"] = 37, ["Q"] = 44, ["W"] = 32, ["E"] = 38, ["R"] = 45, ["T"] = 245, ["Y"] = 246, ["U"] = 303, ["P"] = 199, ["["] = 39, ["]"] = 40, ["ENTER"] = 18,
-  ["CAPS"] = 137, ["A"] = 34, ["S"] = 8, ["D"] = 9, ["F"] = 23, ["G"] = 47, ["H"] = 74, ["K"] = 311, ["L"] = 182,
-  ["LEFTSHIFT"] = 21, ["Z"] = 20, ["X"] = 73, ["C"] = 26, ["V"] = 0, ["B"] = 29, ["N"] = 249, ["M"] = 244, [","] = 82, ["."] = 81,
-  ["LEFTCTRL"] = 36, ["LEFTALT"] = 19, ["SPACE"] = 22, ["RIGHTCTRL"] = 70, 
-  ["HOME"] = 213, ["PAGEUP"] = 10, ["PAGEDOWN"] = 11, ["DELETE"] = 178,
-  ["LEFT"] = 174, ["RIGHT"] = 175, ["TOP"] = 27, ["DOWN"] = 173,
-  ["NENTER"] = 201, ["N4"] = 108, ["N5"] = 60, ["N6"] = 107, ["N+"] = 96, ["N-"] = 97, ["N7"] = 117, ["N8"] = 61, ["N9"] = 118
-}
-
 ESX = nil
-local PlayerData              = {}
-local training = false
-local resting = false
-local membership = false
+local PlayerData = {}
+local training, resting, membership = false, false, false
 
 Citizen.CreateThread(function()
 	while ESX == nil do
@@ -45,7 +31,6 @@ local blips = {
 }
 	
 Citizen.CreateThread(function()
-
 	for _, info in pairs(blips) do
 		info.blip = AddBlipForCoord(info.x, info.y, info.z)
 		SetBlipSprite(info.blip, info.id)
@@ -113,7 +98,6 @@ local rentbike = {
 }
 
 -- LOCATION (END)
-
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
@@ -182,14 +166,13 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
 
         for k in pairs(rentbike) do
-		
             local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
             local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, rentbike[k].x, rentbike[k].y, rentbike[k].z)
 
             if dist <= 0.5 then
 				hintToDisplay('Press ~INPUT_CONTEXT~ to hire a ~b~bike')
 				
-				if IsControlJustPressed(0, Keys['E']) then -- "E"
+				if IsControlJustPressed(0, 38) then -- "E"
 					if IsPedInAnyVehicle(GetPlayerPed(-1)) then
 						ESX.ShowNotification("You already have a ~r~vehicle")
 					else
@@ -206,14 +189,13 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
 
         for k in pairs(gym) do
-		
             local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
             local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, gym[k].x, gym[k].y, gym[k].z)
 
             if dist <= 0.5 then
 				hintToDisplay('Press ~INPUT_CONTEXT~ to open the ~b~gym~w~ menu')
-				
-				if IsControlJustPressed(0, Keys['E']) then
+
+				if IsControlJustPressed(0, 38) then
 					OpenGymMenu()
 				end			
             end
@@ -226,14 +208,13 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
 
         for k in pairs(arms) do
-
             local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
             local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, arms[k].x, arms[k].y, arms[k].z)
 
             if dist <= 0.5 then
 				hintToDisplay('Press ~INPUT_CONTEXT~ to exercise your ~g~arms')
 				
-				if IsControlJustPressed(0, Keys['E']) then
+				if IsControlJustPressed(0, 38) then
 					if training == false then
 					
 						TriggerServerEvent('esx_gym:checkChip')
@@ -271,14 +252,13 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
 
         for k in pairs(chins) do
-
             local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
             local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, chins[k].x, chins[k].y, chins[k].z)
 
             if dist <= 0.5 then
 				hintToDisplay('Press ~INPUT_CONTEXT~ to do some ~g~pull-ups')
-				
-				if IsControlJustPressed(0, Keys['E']) then
+
+				if IsControlJustPressed(0, 38) then
 					if training == false then
 					
 						TriggerServerEvent('esx_gym:checkChip')
@@ -323,7 +303,7 @@ Citizen.CreateThread(function()
             if dist <= 0.5 then
 				hintToDisplay('Press ~INPUT_CONTEXT~ to do some ~g~pushups')
 				
-				if IsControlJustPressed(0, Keys['E']) then
+				if IsControlJustPressed(0, 38) then
 					if training == false then
 					
 						TriggerServerEvent('esx_gym:checkChip')
@@ -361,14 +341,13 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
 
         for k in pairs(yoga) do
-
             local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
             local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, yoga[k].x, yoga[k].y, yoga[k].z)
 
             if dist <= 0.5 then
 				hintToDisplay('Press ~INPUT_CONTEXT~ to do some ~g~yoga')
 				
-				if IsControlJustPressed(0, Keys['E']) then
+				if IsControlJustPressed(0, 38) then
 					if training == false then
 					
 						TriggerServerEvent('esx_gym:checkChip')
@@ -406,14 +385,13 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
 
         for k in pairs(situps) do
-
             local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
             local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, situps[k].x, situps[k].y, situps[k].z)
 
             if dist <= 0.5 then
 				hintToDisplay('Press ~INPUT_CONTEXT~ to do some ~g~pushups')
-				
-				if IsControlJustPressed(0, Keys['E']) then
+
+				if IsControlJustPressed(0, 38) then
 					if training == false then
 
 						TriggerServerEvent('esx_gym:checkChip')
@@ -463,17 +441,13 @@ end
 function OpenGymMenu()
     ESX.UI.Menu.CloseAll()
 
-    ESX.UI.Menu.Open(
-        'default', GetCurrentResourceName(), 'gym_menu',
-        {
+    ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'gym_menu', {
             title    = 'Gym',
             elements = {
-				{label = 'Shop', value = 'shop'},
-				{label = 'Business Hours', value = 'hours'},
-				{label = 'Membership', value = 'ship'},
-            }
-        },
-        function(data, menu)
+		{label = 'Shop', value = 'shop'},
+		{label = 'Business Hours', value = 'hours'},
+		{label = 'Membership', value = 'ship'},
+            }}, function(data, menu)
             if data.current.value == 'shop' then
 				OpenGymShopMenu()
             elseif data.current.value == 'hours' then
@@ -483,29 +457,23 @@ function OpenGymMenu()
             elseif data.current.value == 'ship' then
 				OpenGymShipMenu()
             end
-        end,
-        function(data, menu)
+        end, function(data, menu)
             menu.close()
-        end
-    )
+        end)
 end
 
 function OpenGymShopMenu()
     ESX.UI.Menu.CloseAll()
 
-    ESX.UI.Menu.Open(
-        'default', GetCurrentResourceName(), 'gym_shop_menu',
-        {
+    ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'gym_shop_menu', {
             title    = 'Gym - Shop',
             elements = {
-				{label = 'Protein Shake ($6)', value = 'protein_shake'},
-				{label = 'Water ($1)', value = 'water'},
-				{label = 'Sportlunch ($2)', value = 'sportlunch'},
-				{label = 'Powerade ($4)', value = 'powerade'},
-				{label = 'Bandage ($50)', value = 'bandage'},
-            }
-        },
-        function(data, menu)
+		{label = 'Protein Shake ($6)', value = 'protein_shake'},
+		{label = 'Water ($1)', value = 'water'},
+		{label = 'Sportlunch ($2)', value = 'sportlunch'},
+		{label = 'Powerade ($4)', value = 'powerade'},
+		{label = 'Bandage ($50)', value = 'bandage'},
+            }}, function(data, menu)
             if data.current.value == 'protein_shake' then
 				TriggerServerEvent('esx_gym:buyProteinshake')
             elseif data.current.value == 'water' then
@@ -517,52 +485,40 @@ function OpenGymShopMenu()
             elseif data.current.value == 'bandage' then
 				TriggerServerEvent('esx_gym:buyBandage')
             end
-        end,
-        function(data, menu)
+        end, function(data, menu)
             menu.close()
-        end
-    )
+        end)
 end
 
 function OpenGymShipMenu()
     ESX.UI.Menu.CloseAll()
 
-    ESX.UI.Menu.Open(
-        'default', GetCurrentResourceName(), 'gym_ship_menu',
-        {
+    ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'gym_ship_menu', {
             title    = 'Gym - Membership',
             elements = {
 				{label = 'Membership ($800)', value = 'membership'},
-            }
-        },
-        function(data, menu)
+            }}, function(data, menu)
             if data.current.value == 'membership' then
 				TriggerServerEvent('esx_gym:buyMembership')
 				
 				ESX.UI.Menu.CloseAll()
             end
-        end,
-        function(data, menu)
+        end, function(data, menu)
             menu.close()
-        end
-    )
+        end)
 end
 
 function OpenBikeMenu()
     ESX.UI.Menu.CloseAll()
 
-    ESX.UI.Menu.Open(
-        'default', GetCurrentResourceName(), 'bike_menu',
-        {
+    ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'bike_menu', {
             title    = 'Hire a bike',
             elements = {
-				{label = 'BMX ($250)', value = 'bmx'},
-				{label = 'Cruiser ($300)', value = 'cruiser'},
-				{label = 'Fixter ($329)', value = 'fixter'},
-				{label = 'Scorcher ($400)', value = 'scorcher'},
-            }
-        },
-        function(data, menu)
+		{label = 'BMX ($250)', value = 'bmx'},
+		{label = 'Cruiser ($300)', value = 'cruiser'},
+		{label = 'Fixter ($329)', value = 'fixter'},
+		{label = 'Scorcher ($400)', value = 'scorcher'},
+            }}, function(data, menu)
             if data.current.value == 'bmx' then
 				TriggerServerEvent('esx_gym:hireBmx')
 				TriggerEvent('esx:spawnVehicle', "bmx")
@@ -584,9 +540,7 @@ function OpenBikeMenu()
 				
 				ESX.UI.Menu.CloseAll()
             end
-        end,
-        function(data, menu)
+        end, function(data, menu)
             menu.close()
-        end
-    )
+        end)
 end
